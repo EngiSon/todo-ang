@@ -4,14 +4,14 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EditComponent } from './edit/edit.component';
+import { FormComponent } from './form/form.component';
 import { DashComponent } from './dash/dash.component';
 import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditComponent,
+    FormComponent,
     DashComponent,
     DetailComponent
   ],
@@ -20,8 +20,8 @@ import { DetailComponent } from './detail/detail.component';
     AppRoutingModule,
     RouterModule.forRoot([
       {path: 'todos', component: DashComponent},
-      {path: 'edit', component: EditComponent},
-      {path: 'create', component: EditComponent}
+      {path: 'edit', component: FormComponent},
+      {path: 'create', component: FormComponent}
     ])
   ],
   providers: [],
