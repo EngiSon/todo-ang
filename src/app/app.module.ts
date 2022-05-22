@@ -5,21 +5,23 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
-import { DashComponent } from './dash/dash.component';
+import { TodosComponent } from './todos/todos.component';
 import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    DashComponent,
+    TodosComponent,
     DetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      {path: 'todos', component: DashComponent},
+      {path: '', redirectTo: '/todos', pathMatch: 'full'},
+      {path: 'todos/:id', component: DetailComponent},
+      {path: 'todos', component: TodosComponent},
       {path: 'edit', component: FormComponent},
       {path: 'create', component: FormComponent}
     ])
