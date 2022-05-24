@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Todo } from '../models/todo';
 import { TodoService } from '../shared/todo-service';
 import {Location} from '@angular/common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail',
@@ -10,12 +11,13 @@ import {Location} from '@angular/common';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  todo: Todo | undefined;
+  todo!: Todo;
 
   constructor(
     private route: ActivatedRoute,
     private todoService: TodoService,
-    private location: Location
+    private location: Location,
+    private modalService: NgbModal
     ) { }
 
   ngOnInit(): void {
@@ -23,7 +25,7 @@ export class DetailComponent implements OnInit {
   }
 
   getTodo(): void {
-    const id =  Number(this.route.snapshot.paramMap.get('id'));
+    const id =  this.route.snapshot.paramMap.get('id')!;
     this.todoService.getTodo(id)
     .subscribe(todo => this.todo = todo);
   }
@@ -32,4 +34,12 @@ export class DetailComponent implements OnInit {
     this.location.back();
   }
 
+  deleteTodo() {
+    this.todoService.deleteTodo(this.todo.id);
+    this.goBack();
+  }
+
+  openSm(content: any) {
+    this.modalService.open(content, { size: 'sm' });
+  }
 }
