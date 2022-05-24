@@ -22,7 +22,7 @@ import { DetailComponent } from './detail/detail.component';
       {path: '', redirectTo: '/todos', pathMatch: 'full'},
       {path: 'todos/:id', component: DetailComponent},
       {path: 'todos', component: TodosComponent},
-      {path: 'edit', component: FormComponent},
+      {path: 'edit/:id', component: FormComponent},
       {path: 'create', component: FormComponent}
     ])
   ],
