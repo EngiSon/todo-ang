@@ -1,0 +1,23 @@
+<div class="center">
+  <img width=200 src="{{todo.picture}}">
+  <h2>{{todo.name | uppercase}}</h2>
+  <p class="lead">{{todo.description}}</p>
+  <p class="lead">{{todo.id}}</p>
+  <div class="center-margin">
+    <button class="btn btn-primary" (click)="openSm(content)">Delete</button>
+  </div>
+  <button class="btn btn-primary" (click)="goBack()">Back</button>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Delete</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>Delete Todo?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">No</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click'); deleteTodo()">Yes</button>
+  </div>
+</ng-template>

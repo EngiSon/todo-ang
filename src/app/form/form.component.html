@@ -1,0 +1,27 @@
+<div class="center">
+  <div class="content">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Name</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="todo.name">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="">Description</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="todo.description">
+    </div>
+  </div>
+</div>
+<div class="center">
+  <div *ngIf="create; else single">
+    <div class="btn-group" role="group">
+        <button class="btn btn-primary" (click)="goBack()">Back</button>
+        <button class="btn btn-primary" (click)="addNewTodo()">Create</button>
+    </div>
+  </div>
+  <ng-template #single>
+    <button class="btn btn-primary" (click)="goBack()">Back</button>
+  </ng-template>
+</div>

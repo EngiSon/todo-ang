@@ -1,0 +1,22 @@
+.center-bottom-margin {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.center {
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  display:flex;
+  flex-direction: row;
+}
+
+.list-group-item {
+  max-width: 30em;
+}
