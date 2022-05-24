@@ -1,1 +1,7 @@
-<p>detail works!</p>
+<div *ngIf="todo">
+  <h2>{{todo.name | uppercase}}</h2>
+  <div>
+    <label for="todo-name">Todo title: </label>
+  </div>
+  <button (click)="goBack()">Back</button>
+</div>

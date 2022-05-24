@@ -15,4 +15,9 @@ export class TodoService {
     const todo = TODOS.find(h => h.id === id)!;
     return of(todo);
   }
+
+  deleteTodo(id: number) {
+    const index = TODOS.findIndex(todo => todo.id === id);
+    TODOS.splice(index, 1);
+  }
 }
