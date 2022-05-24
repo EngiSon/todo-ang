@@ -8,6 +8,7 @@ import { TodoService } from '../shared/todo-service';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
+  listView: boolean = false;
   todos: Todo[] = [];
 
   constructor(private todoService: TodoService) { }
@@ -21,4 +22,7 @@ export class TodosComponent implements OnInit {
     .subscribe(todos => this.todos = todos);
   }
 
+  changeView(): void {
+    this.listView = !this.listView;
+  }
 }
